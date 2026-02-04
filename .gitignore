@@ -24,11 +24,40 @@
 *.lai
 *.la
 *.a
-*.lib
 
 # Executables
 *.exe
 *.out
 *.app
 
+# Visual Studio generated folders
 .vs/
+ipch/
+x64/
+x86/
+Debug/
+Release/
+bin/
+obj/
+
+# Visual Studio user files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Build logs
+*.log
+*.tlog
+*.lastbuildstate
+
+# OS junk
+Thumbs.db
+.DS_Store
+
+# Libraries
+!Libraries/
+!Libraries/include/
+!Libraries/lib/
+OpenGLTutorial/x64/Debug/OpenGLTutorial.log
+/OpenGLTutorial
