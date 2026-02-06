@@ -22,4 +22,17 @@
       <Filter>Kaynak Dosyaları</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="shader_s.h">
+      <Filter>Kaynak Dosyaları</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="4.6.shader.vs">
+      <Filter>Kaynak Dosyaları</Filter>
+    </None>
+    <None Include="4.6.shader.fs">
+      <Filter>Kaynak Dosyaları</Filter>
+    </None>
+  </ItemGroup>
 </Project>
