@@ -21,6 +21,9 @@
     <ClCompile Include="glad.c">
       <Filter>Kaynak Dosyaları</Filter>
     </ClCompile>
+    <ClCompile Include="stb_image.cpp">
+      <Filter>Kaynak Dosyaları</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="shader_s.h">

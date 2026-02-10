@@ -13,7 +13,6 @@ class Shader
 public:
     unsigned int ID;
     // constructor generates the shader on the fly
-    // ------------------------------------------------------------------------
     Shader(const char* vertexPath, const char* fragmentPath)
     {
         // 1. retrieve the vertex/fragment source code from filePath
@@ -69,13 +68,11 @@ public:
         glDeleteShader(fragment);
     }
     // activate the shader
-    // ------------------------------------------------------------------------
     void use()
     {
         glUseProgram(ID);
     }
     // utility uniform functions
-    // ------------------------------------------------------------------------
     void setBool(const std::string& name, bool value) const
     {
         glUniform1i(glGetUniformLocation(ID, name.c_str()), (int)value);
@@ -93,7 +90,6 @@ public:
 
 private:
     // utility function for checking shader compilation/linking errors.
-    // ------------------------------------------------------------------------
     void checkCompileErrors(unsigned int shader, std::string type)
     {
         int success;
