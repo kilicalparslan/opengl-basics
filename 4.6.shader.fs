@@ -3,7 +3,7 @@ out vec4 FragColor;
 
 in vec2 TexCoord;
 
-uniform float mixValue;
+uniform float mixValue = 0.2f;
 
 // texture samplers
 uniform sampler2D texture1;
