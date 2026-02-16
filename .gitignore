@@ -61,3 +61,4 @@ Thumbs.db
 !Libraries/lib/
 OpenGLTutorial/x64/Debug/OpenGLTutorial.log
 /OpenGLTutorial
+*.vcxproj
