@@ -1,64 +1,63 @@
-# Prerequisites
-*.d
+# Build folders
+build/
+out/
+cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+compile_commands.json
+Makefile
 
-# Compiled Object files
-*.slo
-*.lo
+# CMake install
+install_manifest.txt
+
+# Object files
 *.o
 *.obj
+*.lo
+*.slo
 
-# Precompiled Headers
-*.gch
-*.pch
-
-# Compiled Dynamic libraries
+# Libraries
+*.a
+*.lib
+*.dll
 *.so
 *.dylib
-*.dll
-
-# Fortran module files
-*.mod
-*.smod
-
-# Compiled Static libraries
-*.lai
-*.la
-*.a
 
 # Executables
 *.exe
 *.out
 *.app
 
-# Visual Studio generated folders
+# Debug files
+*.pdb
+*.ilk
+*.log
+*.tlog
+*.lastbuildstate
+
+# Visual Studio
 .vs/
 ipch/
 x64/
 x86/
 Debug/
 Release/
-bin/
-obj/
-
-# Visual Studio user files
-*.user
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+*.sln
 *.suo
+*.user
 *.userosscache
 *.sln.docstates
 
-# Build logs
-*.log
-*.tlog
-*.lastbuildstate
-
 # OS junk
-Thumbs.db
 .DS_Store
+Thumbs.db
 
-# Libraries
-!Libraries/
-!Libraries/include/
-!Libraries/lib/
-OpenGLTutorial/x64/Debug/OpenGLTutorial.log
-/OpenGLTutorial
-*.vcxproj
+# Dependency files
+*.d
+
+# Temporary
+*.tmp
+*.cache

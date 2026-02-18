@@ -1,9 +1,9 @@
 #include <iostream>
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
-#include <stb_image.h>
-#include "shader.h"
-#include "camera.h"
+#include <stb/stb_image.h>
+#include "core/Shader.h"
+#include "core/Camera.h"
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 void mouse_callback(GLFWwindow* window, double xpos, double ypos);
@@ -65,7 +65,7 @@ int main()
     glEnable(GL_DEPTH_TEST);
 
 	// build and compile shader program
-	Shader ourShader("4.6.shader.vs", "4.6.shader.fs");
+	Shader ourShader("assets/shaders/vertexShader.glsl", "assets/shaders/fragmentShader.glsl");
 
     GLfloat vertices[] = {
     -0.5f, -0.5f, -0.5f,  0.0f, 0.0f,
@@ -156,7 +156,7 @@ int main()
     // load image, create texture and generate mipmaps
     GLint width, height, nrChannels;
     stbi_set_flip_vertically_on_load(true); // tell stb_image.h to flip loaded texture's on the y-axis.
-    unsigned char* data = stbi_load("container.jpg", &width, &height, &nrChannels, 0);
+    unsigned char* data = stbi_load("assets/textures/container.jpg", &width, &height, &nrChannels, 0);
     if (data)
     {
         glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
@@ -178,7 +178,7 @@ int main()
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     // load image, create texture and generate mipmaps
-    data = stbi_load("awesomeface.png", &width, &height, &nrChannels, 0);
+    data = stbi_load("assets/textures/awesomeface.png", &width, &height, &nrChannels, 0);
     if (data)
     {
         glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
