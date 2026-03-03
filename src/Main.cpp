@@ -65,6 +65,8 @@ int main()
 
     // configure global opengl state
     glEnable(GL_DEPTH_TEST);
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
 	// build and compile shaders
     Shader shader("assets/shaders/4_advanced-opengl/advopengl.vert", "assets/shaders/4_advanced-opengl/advopengl.frag");
@@ -173,10 +175,10 @@ int main()
 
     unsigned int cubeTexture = loadTexture("assets/textures/marble.jpg");
     unsigned int floorTexture = loadTexture("assets/textures/metal.png");
-    unsigned int transparentTexture = loadTexture("assets/textures/grass.png");
+    unsigned int transparentTexture = loadTexture("assets/textures/blending_transparent_window.png");
 
-    // transparent vegetation locations
-    vector<glm::vec3> vegetation
+    // transparent window locations
+    vector<glm::vec3> windows
     {
         glm::vec3(-1.5f, 0.0f, -0.48f),
         glm::vec3(1.5f, 0.0f, 0.51f),
@@ -199,6 +201,14 @@ int main()
 
         // input
         processInput(window);
+
+        // sort the transparent windows before rendering
+        std::map<GLfloat, glm::vec3> sorted;
+        for (GLuint i = 0; i < windows.size(); i++)
+        {
+            GLfloat distance = glm::length(camera.Position - windows[i]);
+            sorted[distance] = windows[i];
+        }
 
         // render
         glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
@@ -228,13 +238,13 @@ int main()
         model = glm::mat4(1.0f);
         shader.setMat4("model", model);
         glDrawArrays(GL_TRIANGLES, 0, 6);
-        // vegetation
+        // windows (from furthest to nearest)
         glBindVertexArray(transparentVAO);
         glBindTexture(GL_TEXTURE_2D, transparentTexture);
-        for (GLuint i = 0; i < vegetation.size(); i++)
+        for (std::map<GLfloat, glm::vec3>::reverse_iterator it = sorted.rbegin(); it != sorted.rend(); ++it)
         {
             model = glm::mat4(1.0f);
-            model = glm::translate(model, vegetation[i]);
+            model = glm::translate(model, it->second);
             shader.setMat4("model", model);
             glDrawArrays(GL_TRIANGLES, 0, 6);
         }
